@@ -1,0 +1,22 @@
+# Backend (Maven/Java)
+target/
+*.class
+*.jar
+*.log
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Frontend (cuando lo creemos)
+node_modules/
+dist/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Variables de entorno / secretos
+.env
+application-secrets.properties
