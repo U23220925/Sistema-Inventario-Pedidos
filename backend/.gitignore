@@ -1,22 +1,33 @@
-# Backend (Maven/Java)
+HELP.md
 target/
-*.class
-*.jar
-*.log
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
 
-# IDE
-.idea/
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
 *.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
 .vscode/
-
-# Frontend (cuando lo creemos)
-node_modules/
-dist/
-
-# Sistema operativo
-.DS_Store
-Thumbs.db
-
-# Variables de entorno / secretos
-.env
-application-secrets.properties
