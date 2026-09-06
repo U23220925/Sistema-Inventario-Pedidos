@@ -4,6 +4,7 @@ import com.sistemainventario.backend.entity.Producto;
 import com.sistemainventario.backend.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.sistemainventario.backend.exception.ProductoNotFoundException;
 
 import java.util.List;
 
@@ -22,9 +23,9 @@ public class ProductoService {
     }
 
     public Producto buscarPorId(Long id) {
-        return productoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Producto no encontrado con id: " + id));
-    }
+    return productoRepository.findById(id)
+            .orElseThrow(() -> new ProductoNotFoundException(id));
+}
 
     public Producto actualizar(Long id, Producto datosActualizados) {
         Producto producto = buscarPorId(id);
