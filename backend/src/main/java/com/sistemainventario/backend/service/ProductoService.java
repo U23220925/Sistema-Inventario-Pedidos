@@ -20,4 +20,26 @@ public class ProductoService {
     public List<Producto> listar() {
         return productoRepository.findAll();
     }
+
+    public Producto buscarPorId(Long id) {
+        return productoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Producto no encontrado con id: " + id));
+    }
+
+    public Producto actualizar(Long id, Producto datosActualizados) {
+        Producto producto = buscarPorId(id);
+
+        producto.setNombre(datosActualizados.getNombre());
+        producto.setDescripcion(datosActualizados.getDescripcion());
+        producto.setPrecio(datosActualizados.getPrecio());
+        producto.setStock(datosActualizados.getStock());
+        producto.setCategoria(datosActualizados.getCategoria());
+
+        return productoRepository.save(producto);
+    }
+
+    public void eliminar(Long id) {
+        buscarPorId(id);
+        productoRepository.deleteById(id);
+    }
 }

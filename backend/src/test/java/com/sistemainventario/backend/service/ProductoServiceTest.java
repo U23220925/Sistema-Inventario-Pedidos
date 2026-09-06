@@ -13,6 +13,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
+import java.util.Optional;
+import static org.mockito.Mockito.verify;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -27,19 +29,19 @@ class ProductoServiceTest {
     @InjectMocks
     private ProductoService productoService;
 
-        @Test
-    void deberiaListarTodosLosProductos() {
+            @Test
+    void deberiaEliminarUnProducto() {
         // Arrange
         Categoria categoria = new Categoria("Bebidas");
-        Producto producto1 = new Producto("Coca Cola 500ml", "Bebida gaseosa", new BigDecimal("3.50"), 100, categoria);
-        Producto producto2 = new Producto("Agua sin gas 600ml", "Agua embotellada", new BigDecimal("1.50"), 200, categoria);
+        Producto producto = new Producto("Coca Cola 500ml", "Bebida gaseosa", new BigDecimal("3.50"), 100, categoria);
+        producto.setId(1L);
 
-        when(productoRepository.findAll()).thenReturn(Arrays.asList(producto1, producto2));
+        when(productoRepository.findById(1L)).thenReturn(Optional.of(producto));
 
         // Act
-        List<Producto> resultado = productoService.listar();
+        productoService.eliminar(1L);
 
         // Assert
-        assertEquals(2, resultado.size());
+        verify(productoRepository).deleteById(1L);
     }
 }
