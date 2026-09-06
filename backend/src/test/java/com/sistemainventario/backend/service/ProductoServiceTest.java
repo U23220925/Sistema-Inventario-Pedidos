@@ -1,5 +1,8 @@
 package com.sistemainventario.backend.service;
 
+
+import java.util.Arrays;
+import java.util.List;
 import com.sistemainventario.backend.entity.Categoria;
 import com.sistemainventario.backend.entity.Producto;
 import com.sistemainventario.backend.repository.ProductoRepository;
@@ -24,20 +27,19 @@ class ProductoServiceTest {
     @InjectMocks
     private ProductoService productoService;
 
-    @Test
-    void deberiaCrearUnProductoCorrectamente() {
-        // Arrange (preparar los datos de prueba)
+        @Test
+    void deberiaListarTodosLosProductos() {
+        // Arrange
         Categoria categoria = new Categoria("Bebidas");
-        Producto producto = new Producto("Coca Cola 500ml", "Bebida gaseosa", new BigDecimal("3.50"), 100, categoria);
+        Producto producto1 = new Producto("Coca Cola 500ml", "Bebida gaseosa", new BigDecimal("3.50"), 100, categoria);
+        Producto producto2 = new Producto("Agua sin gas 600ml", "Agua embotellada", new BigDecimal("1.50"), 200, categoria);
 
-        when(productoRepository.save(producto)).thenReturn(producto);
+        when(productoRepository.findAll()).thenReturn(Arrays.asList(producto1, producto2));
 
-        // Act (ejecutar la acción que estamos probando)
-        Producto resultado = productoService.crear(producto);
+        // Act
+        List<Producto> resultado = productoService.listar();
 
-        // Assert (verificar que el resultado es el esperado)
-        assertNotNull(resultado);
-        assertEquals("Coca Cola 500ml", resultado.getNombre());
-        assertEquals(new BigDecimal("3.50"), resultado.getPrecio());
+        // Assert
+        assertEquals(2, resultado.size());
     }
 }
