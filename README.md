@@ -2,7 +2,7 @@
 
 ## Descripción del proyecto
 
-Sistema web para la gestión de inventario y pedidos de una pequeña empresa. Permite registrar y consultar clientes, productos y pedidos, aplicando un flujo de trabajo colaborativo con Git y GitHub como sistema de control de versiones.
+Aplicación web para el control de inventario y el registro de pedidos de una pequeña empresa, construida como proyecto académico del curso Herramientas de Desarrollo Web. Permite registrar y consultar clientes, productos y pedidos, aplicando un flujo de trabajo colaborativo con Git y GitHub como sistema de control de versiones.
 
 Este proyecto fue desarrollado como evaluación del curso **Herramientas de Desarrollo Web**, con el objetivo de aplicar correctamente conceptos de repositorios, ramas, commits, integración de cambios, resolución de conflictos y trabajo colaborativo.
 
