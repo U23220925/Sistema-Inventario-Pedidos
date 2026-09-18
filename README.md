@@ -9,6 +9,9 @@ Este proyecto fue desarrollado como evaluación del curso **Herramientas de Desa
 ## Integrantes
 
 - Nicolas Jara Ortiz (U23220925)
+- Herbert Morales Bueno (U23310949)
+- Alexander sanchez clemente (U24319001)
+
 
 ## Docente
 
